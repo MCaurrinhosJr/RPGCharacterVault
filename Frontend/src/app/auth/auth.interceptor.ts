@@ -12,8 +12,10 @@ export class authInterceptor implements HttpInterceptor {
   ){}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const name = this.LoginService.getLocalStorageKey();
-    const user = this.LoginService.getUserLoggedIn();
+    //const name = this.LoginService.getLocalStorageKey();
+    const name = 'admin';
+    //const user = this.LoginService.getUserLoggedIn();
+    const user = {name: 'admin', email: 'admin@admin'};
     return next.handle(
       req.clone({
         headers: req.headers.append(name, user.email)
